@@ -24,3 +24,8 @@
   )
 ;; Works only for exponents *above* 2
 
+;; Exercise 1.3
+;; Count the number of atoms in an expression.
+(defun count-atoms expression
+  (setf counter 0)
+  (if (isempty expression)
