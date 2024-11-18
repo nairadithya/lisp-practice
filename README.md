@@ -6,4 +6,4 @@ This is a bit of a personal endeavor, I've been reading so much about the elegan
 
 I don't see this repo being anything more than an exploratory project.
 
-The author of the book hosts a fantastic repo containing real code as well,linked [here](https://github.com/norvig/paip-lisp), this repo adds nothing except the fact that it acts as a record of my attempts at learning this language.
+The author of the book hosts a fantastic repo containing real code as well, linked [here](https://github.com/norvig/paip-lisp), this adds nothing except the fact that it acts as a record of my attempts to learning this language and using it to solve problems.
