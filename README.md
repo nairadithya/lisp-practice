@@ -1,4 +1,4 @@
-<h1 align="center> Lisp Practice with Paradigms Of AI Programming </h1>
+<h1 align="center"> Lisp Practice with Paradigms Of AI Programming </h1>
 
 This is a repo of all the exercises done from the textbook "Paradigms Of Artificial Intelligence Programming".
 
