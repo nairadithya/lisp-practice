@@ -7,7 +7,9 @@
   "Defining a last name finder for a full name"
   (if (member (first (last name)) *Suffixes*)
       (last-name (butlast name))
-      (car (last name))))
+      (car (last name))
+      )
+  )
 
 (setf names '((Rex Morgan MD) (Carnival Sir) (Megan Markle Sr.)))
 
@@ -17,15 +19,17 @@
 ;; Define a function for exponentiation.
 (defun power (number exponent)
   "Returns a number raised to the power."
-  (if (not (equalp exponent 2))
-      (* number (power number (+ exponent -1)))
-      (* number number)
-      )
-  )
+  (cond ((= exponent 0) 1)
+        ((= exponent 1) number)
+        (t (* number (power number (- exponent 1))))))
 ;; Works only for exponents *above* 2
+(power 3 3)
 
 ;; Exercise 1.3
 ;; Count the number of atoms in an expression.
-(defun count-atoms expression
-  (setf counter 0)
-  (if (isempty expression)
+(defun count-atoms (expression)
+  "Counts the number of atoms in an expression"
+  (cond  ((null expression) 0)
+         ((atom expression) 1)
+         (t (+ (count-atoms (first expression))
+               (count-atoms (rest expression))))))
