@@ -37,8 +37,3 @@
 (setf a '(2 4 5))
 
 (count-atoms a)
-;; Exercise 1.5
-;; Implement the dot product function
-(defun dot-product (a b)
-  ((null expression) 0)
-  )
