@@ -1,5 +1,4 @@
 ;; Reusing mappend
-
 (defun mappend (fn list)
   (apply #'append (mapcar fn list)))
 
@@ -23,7 +22,6 @@
   (elt choices (random (length choices))))
 
 (sentence)
-
 ;; Rule based implementation
 (defparameter *simple-grammar*
   '((sentence -> (noun-phrase verb-phrase))
@@ -54,5 +52,24 @@
         ((rewrites phrase)
          (generate (random-elt (rewrites phrase))))
         (t (list phrase))))
+
+(generate (sentence))
+
+(defparameter *bigger-grammar*
+  '((sentence -> (noun-phrase verb-phrase))
+    (noun-phrase -> (article Adj* noun PP*) (Name) (Pronoun))
+    (verb-phrase -> (verb noun-phrase PP*))
+    (PP* -> () (PP PP*))
+    (Adj* -> () (Adj Adj*))
+    (PP ->  (Prep noun-phrase))
+    (Prep -> (to in by with on))
+    (Adj -> (big little blue green adiabatic))
+    (article -> (the a))
+    (Name -> (Pat Kim Lee Terry Robin))
+    (noun -> (man ball woman table))
+    (verb -> (hit took saw liked))
+    (Pronoun -> (he she it these those that))))
+
+(setf *grammar* *bigger-grammar*)
 
 (generate (sentence))
