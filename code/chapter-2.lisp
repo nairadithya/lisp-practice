@@ -20,8 +20,6 @@
 
 (defun random-elt (choices)
   (elt choices (random (length choices))))
-
-(sentence)
 ;; Rule based implementation
 (defparameter *simple-grammar*
   '((sentence -> (noun-phrase verb-phrase))
@@ -32,9 +30,8 @@
     (verb -> (hit took saw liked)))
   )
 
-(setq *grammar* *simple-grammar*)
+(setf *grammar* *simple-grammar*)
 
-(assoc 'noun *grammar*)
 
 (defun rule-lhs (rule)
   (first rule))
@@ -53,8 +50,6 @@
          (generate (random-elt (rewrites phrase))))
         (t (list phrase))))
 
-(generate (sentence))
-
 (defparameter *bigger-grammar*
   '((sentence -> (noun-phrase verb-phrase))
     (noun-phrase -> (article Adj* noun PP*) (Name) (Pronoun))
@@ -70,6 +65,6 @@
     (verb -> (hit took saw liked))
     (Pronoun -> (he she it these those that))))
 
-(setf *grammar* *bigger-grammar*)
+(setq *grammar* *bigger-grammar*)
 
-(generate (sentence))
+(generate 'sentence)
